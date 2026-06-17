@@ -194,14 +194,3 @@ they built a recommendation system at a product company, they are
 a fit. Career description text scanning directly implements this
 instruction and is our biggest differentiator vs keyword-only systems.
 
----
-
-## Stage 5 Interview Talking Points
-
-- JD_CONFIG makes the system extensible to any job posting
-- Trust multiplier design catches keyword stuffers without ML
-- Assessment penalty uses the platform's own data against fraud
-- Career description scan implements the JD's explicit Tier 5 hint
-- Honeypot detection uses 6 consistency checks, 2+ flags required
-- Multiplicative behavioral modifier follows the JD's exact wording
-- 25 second runtime leaves 92% of compute budget unused
