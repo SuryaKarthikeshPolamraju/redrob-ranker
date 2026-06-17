@@ -1,0 +1,6 @@
+# No external dependencies required.
+# This ranker uses Python standard library only:
+# json, csv, argparse, datetime
+#
+# Python 3.9+ required.
+# Install Python from https://www.python.org/downloads/

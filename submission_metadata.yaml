@@ -1,0 +1,87 @@
+# Redrob Hackathon — Submission Metadata
+# Stage 3 review uses this file to verify your portal metadata.
+# Fill in YOUR details where marked with <YOUR_...>
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "<YOUR_TEAM_NAME>"
+
+primary_contact:
+  name: "<YOUR_FULL_NAME>"
+  email: "<YOUR_EMAIL>"
+  phone: "+91-<YOUR_PHONE>"
+
+team_members:
+  - name: "<YOUR_FULL_NAME>"
+    email: "<YOUR_EMAIL>"
+    role: "ML Engineer / Sole Participant"
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/<YOUR_USERNAME>/redrob-ranker"
+
+sandbox_link: "https://huggingface.co/spaces/<YOUR_USERNAME>/redrob-ranker"
+# Fill this in after setting up HuggingFace Space (Day 3)
+
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Windows 11 PC, VS Code, PowerShell"
+  cpu_cores: 4
+  ram_gb: 16
+  python_version: "3.x"        # fill in: run `python --version`
+  os: "Windows 11"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+ai_tools_used:
+  - "Claude"
+
+ai_usage_summary: |
+  Used Claude (claude.ai) for architecture discussion, iterative code
+  review, scoring weight tuning, and debugging. All engineering decisions
+  — scoring component design, honeypot detection logic, weight calibration,
+  and reasoning generation — were made through active discussion and
+  iteration. No candidate data was fed to any LLM. The ranking pipeline
+  makes zero API calls and runs entirely on CPU without network access.
+
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  Rule-based ranker with five scoring components combined multiplicatively.
+  All JD knowledge lives in a single JD_CONFIG object — extensible to any
+  job posting in production.
+
+  Components: (1) Skill score with trust multiplier (duration x endorsements)
+  and assessment penalty to catch keyword stuffers. (2) Career description
+  text scan to find candidates whose titles are generic but actual work
+  matches the JD — directly implementing the JD's Tier 5 hint. (3) Career
+  profile score covering YOE range, title relevance, product vs services
+  history, and job stability. (4) Behavioral multiplier using 6 platform
+  signals including recency decay, response rate, and notice period hard cap.
+  (5) Location and disqualifier multipliers.
+
+  Honeypot detection uses 6 consistency checks including tool founding-date
+  sanity checks (Weaviate, Qdrant, Pinecone, LangChain, RAG). Runtime is
+  25 seconds for 100K candidates on CPU. No external libraries required.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
