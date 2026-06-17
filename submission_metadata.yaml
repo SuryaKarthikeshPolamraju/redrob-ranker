@@ -20,10 +20,9 @@ team_members:
 # ============================================================================
 # Code and reproducibility
 # ============================================================================
-github_repo: "https://github.com/<YOUR_USERNAME>/redrob-ranker"
+github_repo: "https://github.com/SuryaKarthikeshPolamraju/redrob-ranker"
 
-sandbox_link: "https://huggingface.co/spaces/<YOUR_USERNAME>/redrob-ranker"
-# Fill this in after setting up HuggingFace Space (Day 3)
+sandbox_link: "https://colab.research.google.com/drive/132mMXNVu3WFc8rkfQAxadRvUK5yNp4Hy?usp=sharing"
 
 reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
 
